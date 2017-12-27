@@ -1,0 +1,25 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+    <!-- Toolbar弹出菜单样式 -->
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">#393a3f</item>
+    </style>
+
+    <!-- Toolbar菜单样式 -->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:showAsAction">never</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+    </style>
+
+     <!--修改Toolbar弹出菜单的style -->
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <!-- 将弹出菜单设置位于plus下方 -->
+        <item name="overlapAnchor">false</item>
+    </style>
+</resources>

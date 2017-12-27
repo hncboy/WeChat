@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">微信</string>
+    <string name="action_search">搜索</string>
+    <string name="action_groupChat">发起群聊</string>
+    <string name="action_addFriends">添加朋友</string>
+    <string name="action_scan">扫一扫</string>
+    <string name="action_money">收付款</string>
+    <string name="action_helpAndFeedback">帮助与反馈</string>
+</resources>

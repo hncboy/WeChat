@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tablayout="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Toolbar -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        app:theme="@style/ToolbarTheme">
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/activity_main_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <com.example.hnc.wechat.view.TabLayout
+            android:id="@+id/activity_main_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EEEEEE"
+            android:orientation="horizontal"
+            tablayout:item_padding="7dp"
+            tablayout:text_normal_color="#ff777777"
+            tablayout:text_select_color="#ff45c01a"
+            tablayout:text_size="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
