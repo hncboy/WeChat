@@ -55,7 +55,7 @@ public class ContactsDividerItemDecoration extends RecyclerView.ItemDecoration {
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);
         int left = parent.getPaddingLeft();
-        int right = parent.getWidth() - parent.getPaddingRight();
+        int right = parent.getWidth();
         int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View child = parent.getChildAt(i);
@@ -78,10 +78,11 @@ public class ContactsDividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private void drawTitle(Canvas c, int left, int right, View child,
                            RecyclerView.LayoutParams params, int index) {
+        //索引的标题
         String title = titleIndex[index].title;
         paint.setColor(bgColor);
-        c.drawRect(left, child.getTop() - params.topMargin - titleHeight + 8, right,
-                child.getTop() - params.topMargin - 8, paint);
+        c.drawRect(left, child.getTop() - params.topMargin - titleHeight + 9, right,
+                child.getTop() - params.topMargin - 9, paint);
         paint.setColor(textColor);
         paint.getTextBounds(title, 0, title.length(), rect);
         c.drawText(title, left + 40, child.getTop() - params.topMargin -
@@ -97,7 +98,7 @@ public class ContactsDividerItemDecoration extends RecyclerView.ItemDecoration {
         if (titleIndex == null) {
             return -1;
         }
-        for (int k = 0; k < titleIndex.length; k++) {
+        for (int k = 0; k < titleIndex.length - 1; k++) {
             if (titleIndex[k] != null && i == titleIndex[k].index) {
                 return k;
             }

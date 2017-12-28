@@ -1,6 +1,5 @@
 package com.example.hnc.wechat.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hnc.wechat.R;
-import com.example.hnc.wechat.bean.Function;
 import com.example.hnc.wechat.bean.User;
 
 import java.util.List;

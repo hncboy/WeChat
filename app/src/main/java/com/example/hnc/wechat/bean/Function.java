@@ -5,19 +5,19 @@ package com.example.hnc.wechat.bean;
  */
 
 public class Function {
-    private String name;
-    private int imageId;
+    private String functionName;
+    private int functionImage;
 
-    public Function(String name, int imageId) {
-        this.name = name;
-        this.imageId = imageId;
+    public Function(String functionName, int functionImage) {
+        this.functionName = functionName;
+        this.functionImage = functionImage;
     }
 
-    public String getName() {
-        return name;
+    public String getFunctionName() {
+        return functionName;
     }
 
-    public int getImageId() {
-        return imageId;
+    public int getFunctionImage() {
+        return functionImage;
     }
 }

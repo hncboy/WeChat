@@ -49,25 +49,47 @@ public class DataFactory {
     }
 
     public static List<User> createContacts(int num) {
-        List<User> ContactsList = createContactsFunction();
-        for (int i = 0; i < num; i++) {
+        List<User> contactsList = new ArrayList<>();
+        for (int i = 0; i < num + 4; i++) {
             User contact = createContact();
-            ContactsList.add(contact);
+            contactsList.add(i, contact);
         }
-        return ContactsList;
+        return contactsList;
     }
 
-    public static List<User> createContactsFunction() {
-        List<User> FunctionsList = new ArrayList<>();
+    public static List<User> createContactsFunction(List<User> functionsList) {
         User newFriend = new User("新的朋友", R.mipmap.function_add_friend_icon);
-        FunctionsList.add(newFriend);
-        User groutChat = new User("群聊,", R.mipmap.function_group_chat_icon);
-        FunctionsList.add(groutChat);
+        functionsList.add(0, newFriend);
+        User groutChat = new User("群聊", R.mipmap.function_group_chat_icon);
+        functionsList.add(1, groutChat);
         User tag = new User("标签", R.mipmap.function_tag_icon);
-        FunctionsList.add(tag);
+        functionsList.add(2, tag);
         User noPublic = new User("公众号", R.mipmap.function_public_icn);
-        FunctionsList.add(noPublic);
-        return FunctionsList;
+        functionsList.add(3, noPublic);
+        return functionsList;
+    }
+
+    public static List<Function> createFindFunction() {
+        List<Function> functionsList = new ArrayList<>();
+        Function pic1 = new Function("朋友圈", R.mipmap.find_friends_icon);
+        functionsList.add(pic1);
+        Function pic2 = new Function("扫一扫", R.mipmap.find_scan_icono);
+        functionsList.add(pic2);
+        Function pic3 = new Function("摇一摇", R.mipmap.find_shake_icon);
+        functionsList.add(pic3);
+        Function pic4 = new Function("看一看", R.mipmap.apple_pic);
+        functionsList.add(pic4);
+        Function pic5 = new Function("附近的人", R.mipmap.find_nearby_icon);
+        functionsList.add(pic5);
+        Function pic6 = new Function("漂流瓶", R.mipmap.find_bottle_icon);
+        functionsList.add(pic6);
+        Function pic7 = new Function("购物", R.mipmap.apple_pic);
+        functionsList.add(pic7);
+        Function pic8 = new Function("游戏", R.mipmap.apple_pic);
+        functionsList.add(pic8);
+        Function pic9 = new Function("小程序", R.mipmap.apple_pic);
+        functionsList.add(pic9);
+        return functionsList;
     }
 
     public static List<User> createChat() {

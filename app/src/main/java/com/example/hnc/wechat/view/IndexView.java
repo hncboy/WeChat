@@ -74,13 +74,14 @@ public class IndexView extends View {
         return super.dispatchTouchEvent(event);
     }
 
+    //右侧字母的触摸事件
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bg_index_view_touch));
             int y = (int) event.getY();
             int index = calculateIndex(y);
-            if (onIndexListener != null) {
+            if (onIndexListener != null && index < 29) {
                 onIndexListener.onStart(index, INDEX_KEY[index]);
             }
             return true;

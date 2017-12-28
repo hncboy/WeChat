@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.example.hnc.wechat.R;
 import com.example.hnc.wechat.adapter.ContactsAdapter;
-import com.example.hnc.wechat.bean.Function;
 import com.example.hnc.wechat.bean.User;
 import com.example.hnc.wechat.bean.Word;
 import com.example.hnc.wechat.util.DataFactory;
@@ -35,10 +34,9 @@ public class ContactsFragment extends Fragment {
     private IndexView indexView;
     private TextView tvWord;
     private List<User> contactsList = new ArrayList<>();
-    private List<Function> functionList = new ArrayList<>();
     private ContactsAdapter adapter;
     private LinearLayoutManager layoutManager;
-    private Word words[] = new Word[26];
+    private Word words[] = new Word[27];
 
     @Nullable
     @Override
@@ -54,9 +52,13 @@ public class ContactsFragment extends Fragment {
             @Override
             public void onSelectedIndex(int index, String word) {
                 tvWord.setText(word);
-                if (index - 1 >= 0 && index - 1 < 26) {
-                    int dex = words[index - 1].index;
+                if (index - 2 >= 0 && index - 2 < 27) {
+                    int dex = words[index - 2].index;
                     layoutManager.scrollToPositionWithOffset(dex, 0);
+                } else if (index == 0) {
+                    layoutManager.scrollToPositionWithOffset(0, 0);
+                } else if (index == 1) {
+                    layoutManager.scrollToPositionWithOffset(2, 0);
                 }
             }
 
@@ -64,6 +66,14 @@ public class ContactsFragment extends Fragment {
             public void onStart(int index, String word) {
                 tvWord.setVisibility(View.VISIBLE);
                 tvWord.setText(word);
+                if (index - 2 >= 0 && index - 2 < 27) {
+                    int dex = words[index - 2].index;
+                    layoutManager.scrollToPositionWithOffset(dex, 0);
+                } else if (index == 0) {
+                    layoutManager.scrollToPositionWithOffset(0, 0);
+                } else if (index == 1) {
+                    layoutManager.scrollToPositionWithOffset(4, 0);
+                }
             }
 
             @Override
@@ -88,6 +98,7 @@ public class ContactsFragment extends Fragment {
                 return user.getName().compareTo(t1.getName());
             }
         });
+        contactsList = DataFactory.createContactsFunction(contactsList);
         initWord();
         adapter = new ContactsAdapter(contactsList);
         recyclerView.setAdapter(adapter);
@@ -99,14 +110,15 @@ public class ContactsFragment extends Fragment {
         int in = 0;
         int k = 0;
         String word = "";
-        for (int i = 0; i < contactsList.size(); i++) {
+        for (int i = 4; i < contactsList.size(); i++) {
             String w1 = contactsList.get(i).getName().substring(0, 1);
+            //空字符则继续循环
             if (word.equals(w1)) {
                 continue;
             }
             word = w1;
             in = i;
-            for (; k < words.length; k++) {
+            for (; k < 26; k++) {
                 String w2 = IndexView.INDEX_KEY[k + 2];
                 if (word.compareTo(w2) < 0) {
                     break;
@@ -121,5 +133,8 @@ public class ContactsFragment extends Fragment {
             words[k].title = IndexView.INDEX_KEY[k + 2];
             words[k].index = in;
         }
+        words[k] = new Word();
+        words[k].title = IndexView.INDEX_KEY[k + 2];
+        words[k].index = in + 1;
     }
 }
