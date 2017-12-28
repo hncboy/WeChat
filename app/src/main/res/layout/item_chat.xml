@@ -1,24 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/item_shape"
     android:orientation="horizontal"
     android:padding="8dp">
 
     <ImageView
-        android:layout_gravity="center_vertical"
         android:id="@+id/iv_photo"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="6dp" />
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="6dp"
+        android:src="@mipmap/chat" />
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="6dp"
-        android:textColor="#000"
-        android:textSize="16sp" />
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="勿忘初心"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                android:text="昨天"
+                android:textColor="#bbbbbb"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:maxEms="16"
+            android:singleLine="true"
+            android:text="你已添加了勿忘初心，现在可以开始聊天了。"
+            android:textColor="@color/color_message"
+            android:textSize="13sp" />
+
+    </LinearLayout>
 
 </LinearLayout>

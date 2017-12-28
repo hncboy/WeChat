@@ -1,5 +1,6 @@
 package com.example.hnc.wechat.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,20 +18,22 @@ import java.util.List;
  * Created by pc on 2017/12/26.
  */
 
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
+public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder> {
 
     private List<User> mChatList;
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-        View chatView;
-        ImageView chatPhoto;
-        TextView chatName;
+    static class ChatViewHolder extends RecyclerView.ViewHolder {
+        public View chatView;
+        public ImageView chatPhoto;
+        public TextView chatName;
+        public TextView chatMessage;
 
-        public ViewHolder(View view) {
+        public ChatViewHolder(View view) {
             super(view);
             chatView = view;
             chatPhoto = view.findViewById(R.id.iv_photo);
             chatName = view.findViewById(R.id.tv_name);
+            chatMessage = view.findViewById(R.id.tv_message);
         }
     }
 
@@ -39,26 +42,26 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ChatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat, parent, false);
-        final ViewHolder holder = new ViewHolder(view);
+        final ChatViewHolder holder = new ChatViewHolder(view);
         holder.chatView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int position = holder.getAdapterPosition();
                 User user = mChatList.get(position);
-                Toast.makeText(view.getContext(), "You clicked photo" + user.getName(),
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), user.getName(), Toast.LENGTH_SHORT).show();
             }
         });
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ChatViewHolder holder, int position) {
         User user = mChatList.get(position);
         holder.chatPhoto.setImageResource(user.getPhotoId());
         holder.chatName.setText(user.getName());
+        holder.chatMessage.setText(user.getMessage());
     }
 
     @Override

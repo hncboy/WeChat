@@ -13,7 +13,7 @@
         android:id="@+id/action_plus"
         android:icon="@drawable/actionbar_plus_icon"
         android:title=""
-        app:actionProviderClass="com.example.hnc.wechat.activity.PlusActionProvider"
+        app:actionProviderClass="com.example.hnc.wechat.provider.PlusActionProvider"
         app:showAsAction="ifRoom" />
 
 </menu>

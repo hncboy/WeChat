@@ -4,5 +4,14 @@
     <color name="colorPrimaryDark">#303135</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="color_line">#d5d5d5</color>
+    <color name="color_line">#d9d9d9</color>
+    <color name="color_message">#999999</color>
+
+    <color name="text_color_gray_light">#ebebeb</color>
+    <color name="text_color_gray_deep">#888888</color>
+
+    <color name="color_null">#00ffffff</color>
+
+    <color name="bg_index_view_touch">#44000000</color>
+    <color name="bg_toast_color">#66000000</color>
 </resources>
