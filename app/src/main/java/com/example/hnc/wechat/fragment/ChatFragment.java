@@ -50,4 +50,5 @@ public class ChatFragment extends Fragment {
         adapter = new ChatAdapter(chatList);
         recyclerView.setAdapter(adapter);
     }
+
 }

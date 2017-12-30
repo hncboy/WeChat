@@ -3,6 +3,7 @@ package com.example.hnc.wechat.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import com.example.hnc.wechat.R;
@@ -24,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     //初始化ToolBar
     private void initToolBar() {
-        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
 
